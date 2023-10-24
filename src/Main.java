@@ -66,23 +66,32 @@ public class Main {
 
 
         // do the zig zag
-        Link currentOne = wordOne.first;
-        Link currentTwo = wordTwo.first.next;
-        //boolean flip = true; // true because we already have word one on current// delete the first letter since we never use it.
-
-        while (currentOne.next != null && currentTwo.next != null) {
-            Link tempOne = currentOne.next;
-            Link tempTwo = currentTwo.next;
-
-            currentOne.next = currentTwo;
-            currentOne = tempOne.next;
-            currentTwo = tempTwo.next;
+        //start the ptr at word ones header link.
+        Link walkerOne = wordOne.first;
+        Link walkerTwo = wordTwo.first.next;
 
 
+        while (walkerOne != null || walkerTwo != null) {
+            if (walkerOne.next == null || walkerTwo.next == null) {
+                walkerOne.next = null;
+                break;
+            }
 
+            Link temp1 = walkerOne.next;
+            Link temp2 = walkerTwo.next;
+
+
+            walkerOne.next = walkerTwo;
+            walkerTwo.next = temp1.next;
+
+            walkerOne = (temp1.next != null) ? temp1.next : null;
+            walkerTwo = (temp2.next != null) ? temp2.next : null;
+
+            wordOne.DisplayList();
         }
 
         wordOne.DisplayList();
+        //wordTwo.DisplayList();
 
 
     }
