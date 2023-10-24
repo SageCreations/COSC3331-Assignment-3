@@ -61,15 +61,30 @@ public class Main {
         // another O(n) ;_;
         StringToLinkList(stringTwo, wordTwo);
 
-        int index = 0;
-        // do the zig zag
-        Link current = wordOne.first;
-        boolean flip = true; // true because we already have word one on current
-        while (current != null) {
-            if (flip) {
+        wordOne.DisplayList();
+        wordTwo.DisplayList();
 
-            }
+
+        // do the zig zag
+        Link currentOne = wordOne.first;
+        Link currentTwo = wordTwo.first.next;
+        //boolean flip = true; // true because we already have word one on current// delete the first letter since we never use it.
+
+        while (currentOne.next != null && currentTwo.next != null) {
+            Link tempOne = currentOne.next;
+            Link tempTwo = currentTwo.next;
+
+            currentOne.next = currentTwo;
+            currentOne = tempOne.next;
+            currentTwo = tempTwo.next;
+
+
+
         }
+
+        wordOne.DisplayList();
+
+
     }
 
     public static void OptionTwo() {
