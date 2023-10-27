@@ -1,6 +1,8 @@
 public class Utils {
     // This is just a class for utility functions to clean up the main file.
-
+	
+	char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+	
     // there's probably gonna be a lot of this....
     public static void StringToLinkList(String wordString, LinkList wordLink) {
         for (int i = wordString.length()-1; i >= 0 ; i--) {
@@ -20,10 +22,16 @@ public class Utils {
             (letter >= '[' && letter <= '`') ||
             (letter >= '{' && letter <= '~')
         );
-
     }
 
-
-
+	public static boolean IsVowel(char letter) {
+			for (int i = 0; i < vowels.length; i++) {
+				if (letter == vowels[i]) {
+					return true;
+				}
+			}
+			
+			return false;
+	}
 
 }

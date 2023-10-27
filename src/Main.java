@@ -125,7 +125,14 @@ public class Main {
             }
 
 
-
+			//TODO: Vowel-digit-vowel check.
+			if (Utils.IsDigit(walker.next.charTypeData)) {
+				if(Utils.IsVowel(walker.charTypeData)) {
+					if (null != walker.next.next && Utils.IsVowel(walker.next.next)) {
+					
+					}
+				}
+			}
 
 
 
